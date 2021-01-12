@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <div class ="title">Test Calculator</div> 
+    <table border="1"> 
+       <tr> 
+          <td colspan="3"><input type="text" id="result"/></td> 
+          <!-- clr() function will call clr to clear all value -->
+          <td><input id="clear" type="button" value="c"/> </td> 
+       </tr> 
+       <tr> 
+          <!-- create button and assign value to each button -->
+          <!-- dis("1") will call function dis to display value -->
+          <td><input id="one" onclick="number('one')" type="button" value="1"/> </td> 
+          <td><input id="two" onclick="number('two')" type="button" value="2"/> </td> 
+          <td><input id="three" onclick="number('three')" type="button" value="3"/> </td> 
+          <td><input id="division" onclick="number('division')" type="button" value="/"/> </td> 
+       </tr> 
+       <tr> 
+          <td><input id="four" onclick="number('four')" type="button" value="4"/> </td> 
+          <td><input id="five" onclick="number('five')" type="button" value="5"/> </td> 
+          <td><input id="six" onclick="number('six')" type="button" value="6"/> </td> 
+          <td><input id="minus" onclick="number('minus')" type="button" value="-"/> </td> 
+       </tr> 
+       <tr> 
+          <td><input id="seven" onclick="number('seven')" type="button" value="7"/> </td> 
+          <td><input id="eight" onclick="number('eight')" type="button" value="8"/> </td> 
+          <td><input id="nine" onclick="number('nine')" type="button" value="9"/> </td> 
+          <td><input id="plus" onclick="number('plus')" type="button" value="+"/> </td> 
+       </tr> 
+       <tr> 
+          <td><input id="dot" onclick="number('dot')" type="button" value="."/> </td> 
+          <td><input id="zero" onclick="number('zero')" type="button" value="0"/> </td> 
+          <!-- solve function call function solve to evaluate value -->
+          <td><input id="equalTo" type="button" value="="/> </td> 
+          <td><input id="multiply" onclick="number('multiply')" type="button" value="*"/> </td> 
+       </tr> 
+    </table> 
+
+    <script>
+        //    jshint::esnext:true 
+        var number = (unit) => {
+            let decimal = document.getElementById(unit)
+            document.getElementById('result').value += decimal.value
+        }
+
+        document.getElementById('clear').addEventListener('click', function(){
+            document.getElementById('result').value = ''
+        })
+
+        document.getElementById('equalTo').addEventListener('click', function(){
+            let result = document.getElementById('result')
+            let total = eval(result.value)
+            result.value = total
+        })
+    </script>
+</body>
+</html>
